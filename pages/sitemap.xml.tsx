@@ -4,16 +4,16 @@ import { host } from '@/lib/config'
 import { getSiteMap } from '@/lib/get-site-map'
 import type { SiteMap } from '@/lib/types'
 
-export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  if (req.method !== 'GET') {
-    res.statusCode = 405
-    res.setHeader('Content-Type', 'application/json')
-    res.write(JSON.stringify({ error: 'method not allowed' }))
-    res.end()
-    return {
-      props: {}
-    }
-  }
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  // if (req.method !== 'GET') {
+  //   res.statusCode = 405
+  //   res.setHeader('Content-Type', 'application/json')
+  //   res.write(JSON.stringify({ error: 'method not allowed' }))
+  //   res.end()
+  //   return {
+  //     props: {}
+  //   }
+  // }
 
   const siteMap = await getSiteMap()
 
@@ -38,15 +38,11 @@ const createSitemap = (siteMap: SiteMap) =>
       <loc>${host}</loc>
     </url>
 
-    <url>
-      <loc>${host}/</loc>
-    </url>
-
     ${Object.keys(siteMap.canonicalPageMap)
       .map((canonicalPagePath) =>
         `
           <url>
-            <loc>${host}/${canonicalPagePath}</loc>
+            <loc>${host}/${encodeURIComponent(canonicalPagePath)}</loc>
           </url>
         `.trim()
       )
