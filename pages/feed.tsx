@@ -55,8 +55,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 
     const title = getBlockTitle(block, recordMap) || config.name
     const description =
-      getPageProperty<string>('Description', block, recordMap) ||
-      config.description
+      getPageProperty<string>('설명', block, recordMap) || config.description
     const url = getCanonicalPageUrl(config.site, recordMap)(pageId)
     const lastUpdatedTime = getPageProperty<number>(
       'Last Updated',
