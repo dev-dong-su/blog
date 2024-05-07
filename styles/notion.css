@@ -7,6 +7,10 @@
  * places to add some flare.
  */
 
+html {
+  background-color: #2f3437;
+}
+
 .notion {
   --notion-max-width: 720px;
   --notion-header-height: 54px;
@@ -31,7 +35,7 @@
 }
 
 .notion-page-content {
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
 }
 
 .notion-page {
@@ -41,7 +45,7 @@
 
 .notion-aside {
   flex: 0;
-  margin-right: 5rem;
+  margin-left: 5rem;
 }
 
 .notion-page {
