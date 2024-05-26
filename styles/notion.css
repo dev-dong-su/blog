@@ -60,6 +60,14 @@ html {
   white-space: pre-wrap;
 }
 
+.notion-collection-row-body
+  .notion-collection-row-property
+  .notion-collection-row-value
+  .notion-property-text {
+  text-align: center;
+  white-space: pre-wrap;
+}
+
 .notion-asset-caption {
   text-align: center;
 }
